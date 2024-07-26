@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="img/default.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+    <h1>BMI calculator</h1>
+    <p><label >height....</label><input id="height" /></p>
+    <p><label >wight......</label><input id="weight" /></p>
+    <button type="submit">calculate</button>
+    <h4 style="background-color: transparent;border: transparent;" class="error"></h4>
+    </form>
+</body>
+<script>
+    const form = document.querySelector('form')
+
+    window.addEventListener('submit',(e) => {
+        const last=document.querySelectorAll('h2')
+        if (last.length>3) {
+            last[0].remove()
+        }
+    })
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const height = parseInt(document.querySelector('#height').value)
+        const weight = parseInt(document.querySelector('#weight').value)
+        const error = document.querySelector('.error')
+
+        if (!height || isNaN(height)) {
+            error.innerHTML = `erroe! please give a valid height ${height}`
+        } else if (!weight || isNaN(weight)) {
+            error.innerHTML = `error! please give a valid height ${weight}`
+        } else {
+            const out = document.createElement('h2')
+            out.innerHTML = `If height=${height} and weight=${weight} then BMI=${(weight/((height*height)/10000)).toFixed(2)}`
+            document.querySelector('form').appendChild(out)
+            error.innerHTML = null
+        }
+    })
+</script>
+
+</html>

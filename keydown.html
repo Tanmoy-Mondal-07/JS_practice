@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="insert"></div>
+</body>
+<script>
+    const insert=document.querySelector('.insert')
+    window.addEventListener('keydown',(e)=>{
+        insert.innerHTML=`
+        <h1>keys=${e.key}</h1>
+        <h1>keycode=${e.keyCode}</h1>
+        <h1>code=${e.code}</h1>
+        `
+    })
+</script>
+</html>
